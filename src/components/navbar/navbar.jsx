@@ -1,5 +1,6 @@
 import React from "react";
-import axios from "axios";
+import { GraphQLClient, gql } from "graphql-request";
+import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -12,60 +13,75 @@ const MyNavbar = () => {
     getGalleryLinks();
   }, []);
   async function getGalleryLinks() {
-    await axios({
-      url: "https://nz3s72ab.api.sanity.io/v1/graphql/production/default",
-      method: "post",
-      data: {
-        query: `
-        query  {
-          allGallery {
-            _id
-            name
-            slug{
-              current
-            }
+    const endpoint =
+      "https://nz3s72ab.api.sanity.io/v1/graphql/production/default";
+    const graphQLClient = new GraphQLClient(endpoint);
+    const query = gql`
+      query {
+        allGallery {
+          _id
+          name
+          slug {
+            current
           }
         }
-        
-        `,
-      },
-    }).then((result) => {
-      setGalleryLinks(result.data.data.allGallery);
-      setLoad(false);
-    });
+      }
+    `;
+    const data = await graphQLClient.request(query);
+    setGalleryLinks(data.allGallery);
+    setLoad(false);
   }
   return (
     <>
-      <Navbar bg="dark" variant="dark" style={{position:"fixed",zIndex:"10",width:"100%"}}>
-        <Nav className="me-auto">
-          <Nav.Link href="/">
-            {" "}
-            <Link href="/"> Főoldal</Link>
-          </Nav.Link>
-          <Nav.Link href="/about">
-            {" "}
-            <Link href="/about"> Rólam</Link>
-          </Nav.Link>
-          <NavDropdown title="Link" id="navbarScrollingDropdown">
-            {!load && !!galleryLinks
-              ? galleryLinks.map((link) => {
-                  return (
-                    <Nav.Link href={`/${link.slug.current}`}>
-                      {" "}
-                      <Link
-                        href={{
-                          pathname: `/${link.slug.current}`,
-                          query: { id: link._id },
-                        }}
-                      >
-                        {link.name}
-                      </Link>
-                    </Nav.Link>
-                  );
-                })
-              : null}
-          </NavDropdown>
-        </Nav>
+      <Navbar
+        collapseOnSelect
+        variant="dark"
+        expand="lg"
+        style={{ position: "fixed", zIndex: "10", width: "100%" }}
+      >
+        <Container>
+          <Link href="/">
+            <Navbar.Brand href="/">Brand link</Navbar.Brand>
+          </Link>
+
+          <Navbar.Toggle />
+          <Navbar.Collapse>
+            <Nav className="ms-auto p-4">
+              <Link href="/">
+                <Nav.Link href="/">Főoldal</Nav.Link>
+              </Link>
+              <Link href="/rolam">
+                <Nav.Link href="/rolam">Rólam</Nav.Link>
+              </Link>
+              <NavDropdown title="Munkáim" id="navbarScrollingDropdown">
+                {!load && !!galleryLinks
+                  ? galleryLinks.map((link, i) => {
+                      return (
+                        <Link
+                          className="nav-link"
+                          key={`nl${i}`}
+                          href={`/${link.slug.current}`}
+                        >
+                          <Nav.Link
+                            href={`/${link.slug.current}`}
+                            key={`l${i}`}
+                          >
+                            {link.name}
+                          </Nav.Link>
+                        </Link>
+                      );
+                    })
+                  : null}
+              </NavDropdown>
+              <Link href="/arak">
+                <Nav.Link href="/arak">Árak</Nav.Link>
+              </Link>
+              <Link href="/kapcsolat">
+                <Nav.Link href="/kapcsolat">Kapcsolat</Nav.Link>
+              </Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
       </Navbar>
     </>
   );

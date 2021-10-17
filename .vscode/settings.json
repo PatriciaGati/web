@@ -9,5 +9,6 @@
     "editor.formatOnSave": false
   },
   "editor.formatOnPaste": true,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "restructuredtext.languageServer.disabled": true
 }
