@@ -1,0 +1,10 @@
+@import "variables.scss";
+
+:root {
+  --bg: #{$bg};
+  --fg: #{$fg};
+
+  --success: #{$success};
+  --warning: #{$warning};
+  --danger: #{$danger};
+}

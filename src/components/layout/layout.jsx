@@ -1,18 +1,21 @@
 import Image from "next/image";
+import { ThemeProvider } from "styled-components";
+import GlobalStyle from "../../../styles/globasstyle";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import MyNavbar from "../navbar";
-
+import { defaultTheme } from "../../../themes/theme";
 const Layout = (props) => {
   const { children, image, imagetext } = props;
 
   return (
-    <>
+    <ThemeProvider theme={defaultTheme}>
+      <GlobalStyle />
       <MyNavbar />
       <Container fluid>
         <Row style={{ backgroundColor: "black" }}>
-          <Col md={6}>
+          <Col md={{ span: 3, offset: 1 }}>
             <Image
               src={image.image.asset.url}
               alt={image.alt}
@@ -23,11 +26,11 @@ const Layout = (props) => {
               height="800"
               quality="100"
               objectFit="cover"
-              placeholder="skeleton"
+              placeholder={() => <div style={{ backgroundColor: "grey" }} />}
               loading="lazy"
             />
           </Col>
-          <Col md={6} className="text-image">
+          <Col md={{ span: 3, offset: 4 }} className="text-image">
             <Image
               src={imagetext.image.asset.url}
               alt={imagetext.alt}
@@ -38,7 +41,7 @@ const Layout = (props) => {
               height="300"
               quality="100"
               objectFit="contain"
-              placeholder="skeleton"
+              placeholder={() => <div style={{ backgroundColor: "grey" }} />}
               loading="lazy"
             />
           </Col>
@@ -46,7 +49,7 @@ const Layout = (props) => {
       </Container>
 
       <Container>{children}</Container>
-    </>
+    </ThemeProvider>
   );
 };
 

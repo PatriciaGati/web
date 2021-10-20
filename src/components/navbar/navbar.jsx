@@ -5,14 +5,31 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Link from "next/link";
+
+const initialData = [
+  {
+    _id: "640969e0-cfe3-4642-bb05-6f4a8cbd4d99",
+    name: "Családi",
+    slug: { current: "csaladi" },
+  },
+  {
+    _id: "94d70352-dad3-4f01-9b47-70fa694237e7",
+    name: "Esküvői",
+    slug: { current: "eskuvoi" },
+  },
+];
+
 const MyNavbar = () => {
   const [load, setLoad] = React.useState(true);
   const [galleryLinks, setGalleryLinks] = React.useState();
 
   React.useEffect(() => {
-    getGalleryLinks();
+    //getGalleryLinks();
+    setGalleryLinks(initialData);
+    setLoad(false);
   }, []);
-  async function getGalleryLinks() {
+  {
+    /*async function getGalleryLinks() {
     const endpoint =
       "https://nz3s72ab.api.sanity.io/v1/graphql/production/default";
     const graphQLClient = new GraphQLClient(endpoint);
@@ -30,6 +47,7 @@ const MyNavbar = () => {
     const data = await graphQLClient.request(query);
     setGalleryLinks(data.allGallery);
     setLoad(false);
+  }*/
   }
   return (
     <>
@@ -57,12 +75,9 @@ const MyNavbar = () => {
                 {!load && !!galleryLinks
                   ? galleryLinks.map((link, i) => {
                       return (
-                        <Link
-                          className="nav-link"
-                          key={`nl${i}`}
-                          href={`/${link.slug.current}`}
-                        >
+                        <Link key={`nl${i}`} href={`/${link.slug.current}`}>
                           <Nav.Link
+                            className="dropdown-link"
                             href={`/${link.slug.current}`}
                             key={`l${i}`}
                           >
