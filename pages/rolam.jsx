@@ -2,47 +2,12 @@ import { GraphQLClient, gql } from "graphql-request";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Layout from "../src/components/layout";
-import pati from "../src/image/pati.jpg";
-import imageText from "../src/image/kezdolap.png";
-const initialData = {
-  allAbout: [
-    {
-      name: "Rólam",
-      header: "Rólam",
-      seo: {
-        metaKeyWords: "Rólam",
-        metaDescription: "Rólam",
-        structured_data: { title: "Rólam", alt: "Rólam" },
-      },
-      image: {
-        title: "Rólam",
-        alt: "Rólam",
-        description: "Rólam",
-        image: {
-          asset: {
-            url: pati,
-          },
-        },
-      },
-      imagetext: {
-        title: "Rólam",
-        alt: "Rólam",
-        description: "Rólam",
-        image: {
-          asset: {
-            url: imageText,
-          },
-        },
-      },
-    },
-  ],
-};
+
 
 const About = (props) => {
-  //const { data } = props;
+  const { data } = props;
 
-  //const { name, image, imagetext, text } = data.allMain[0];
-  const { name, image, imagetext, text } = initialData.allAbout[0];
+  const { name, image, imagetext, text } = data.allAbout[0];
 
   return (
     <Layout image={image} imagetext={imagetext}>
@@ -55,8 +20,7 @@ const About = (props) => {
   );
 };
 
-{
-  /*export async function getServerSideProps() {
+export async function getServerSideProps() {
   const endpoint =
     "https://nz3s72ab.api.sanity.io/v1/graphql/production/default";
 
@@ -100,7 +64,6 @@ const About = (props) => {
   return {
     props: { data }, // will be passed to the page component as props
   };
-}*/
 }
 
 export default About;

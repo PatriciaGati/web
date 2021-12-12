@@ -1,11 +1,26 @@
 import Image from "next/image";
 import { ThemeProvider } from "styled-components";
+import sanityClient from '@sanity/client';
+import imageUrlBuilder from '@sanity/image-url'
 import GlobalStyle from "../../../styles/globasstyle";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import MyNavbar from "../navbar";
 import { defaultTheme } from "../../../themes/theme";
+
+const configuredSanityClient = sanityClient({
+	projectId: 'nz3s72ab',
+	dataset: 'production',
+	useCdn: true
+});
+
+const builder = imageUrlBuilder(configuredSanityClient)
+
+function urlFor(source) {
+  return builder.image(source)
+}
+
 const Layout = (props) => {
   const { children, image, imagetext } = props;
 
@@ -17,7 +32,7 @@ const Layout = (props) => {
         <Row style={{ backgroundColor: "black" }}>
           <Col md={{ span: 3, offset: 1 }}>
             <Image
-              src={image.image.asset.url}
+              src={urlFor(image.image).url()}
               alt={image.alt}
               title={image.title}
               description={image.description}

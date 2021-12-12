@@ -1,5 +1,7 @@
 import React from "react";
 import { GraphQLClient, gql } from "graphql-request";
+import sanityClient from '@sanity/client';
+import imageUrlBuilder from '@sanity/image-url'
 import Image from "next/image";
 import ImageGallery from "react-image-gallery";
 import Row from "react-bootstrap/Row";
@@ -8,6 +10,18 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Layout from "../src/components/layout";
 import blur from "../src/image/blur.jpg";
+
+const configuredSanityClient = sanityClient({
+	projectId: 'nz3s72ab',
+	dataset: 'production',
+	useCdn: true
+});
+
+const builder = imageUrlBuilder(configuredSanityClient)
+
+function urlFor(source) {
+  return builder.image(source)
+}
 
 const Gallery = (props) => {
   const [show, setShow] = React.useState(false);
@@ -20,8 +34,8 @@ const Gallery = (props) => {
   const { name, image, images, imagetext } = gallery[0];
   const imagesArray = images.map((image) => {
     return {
-      thumbnail: image.image.asset.url,
-      original: image.image.asset.url,
+      thumbnail: urlFor(image.image).width(200).url(),
+      original: urlFor(image.image).url(),
     };
   });
   function handleClick(i) {
@@ -36,7 +50,7 @@ const Gallery = (props) => {
             <Col key={`col${i}`} xs={6} md={4} lg={3} className="p-2">
               <Image
                 key={`img${i}`}
-                src={image.image.asset.url}
+                src={urlFor(image.image).url()}
                 alt={image.alt}
                 title={image.title}
                 description={image.description}

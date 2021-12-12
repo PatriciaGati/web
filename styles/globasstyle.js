@@ -33,7 +33,8 @@ h1 {
 }
 
 .dropdown-menu {
-  background-color: ${(props) => props.theme.bg} !important;
+  background-color: transparent!important;
+  margin-left: 1em !important;
 }
 .text-image > div {
   top: 50%;
@@ -50,6 +51,9 @@ h1 {
     content: "/" !important;
     position: relative !important;
     right: -10px !important;
+  }
+  .dropdown-menu {
+    margin-left: 0em !important;
   }
 } `;
 

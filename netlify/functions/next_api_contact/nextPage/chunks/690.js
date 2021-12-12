@@ -1,0 +1,21 @@
+"use strict";
+exports.id = 690;
+exports.ids = [690];
+exports.modules = {
+
+/***/ 57869:
+/***/ (() => {
+
+/* unused harmony default export */ var __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/image/src/image/kezdolap.a497a74a3683cd5933f9ec090a52ced5.png","height":552,"width":1726,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAADCAQAAAAEwYbDAAAAPklEQVR42mP4KPdJ9hfnR6UvMt94vvB95mL4ovfV4YPOB9OPHp9tvph9VGX4yrCQ4aXgE8GnQk8ELjC/ZwAAktIYuH/F82kAAAAASUVORK5CYII="});
+
+/***/ }),
+
+/***/ 47416:
+/***/ (() => {
+
+/* unused harmony default export */ var __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/image/src/image/pati.84427417c1e7392967e44ddd407cf31f.jpg","height":1980,"width":1157,"blurDataURL":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoKCgoKCgsMDAsPEA4QDxYUExMUFiIYGhgaGCIzICUgICUgMy03LCksNy1RQDg4QFFeT0pPXnFlZXGPiI+7u/sBCgoKCgoKCwwMCw8QDhAPFhQTExQWIhgaGBoYIjMgJSAgJSAzLTcsKSw3LVFAODhAUV5PSk9ecWVlcY+Ij7u7+//CABEIAAgABQMBIgACEQEDEQH/xAAUAAEAAAAAAAAAAAAAAAAAAAAH/9oACAEBAAAAACj/xAAUAQEAAAAAAAAAAAAAAAAAAAAB/9oACAECEAAAAD//xAAUAQEAAAAAAAAAAAAAAAAAAAAB/9oACAEDEAAAAH//xAAaEAACAgMAAAAAAAAAAAAAAAABAgRRABES/9oACAEBAAE/AHWKIsZ9nti4YKavP//EABURAQEAAAAAAAAAAAAAAAAAAAEA/9oACAECAQE/AEv/xAAVEQEBAAAAAAAAAAAAAAAAAAABAP/aAAgBAwEBPwAb/9k="});
+
+/***/ })
+
+};
+;
