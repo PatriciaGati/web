@@ -30,7 +30,7 @@ const Layout = (props) => {
               loading="lazy"
             />
           </Col>
-          <Col md={{ span: 3, offset: 4 }} className="text-image">
+          <Col className="text-image" md={{ span: 3, offset: 3 }}>
             <Image
               src={imagetext.image.asset.url}
               alt={imagetext.alt}
@@ -38,7 +38,7 @@ const Layout = (props) => {
               description={imagetext.description}
               layout="responsive"
               width="500"
-              height="300"
+              height="200"
               quality="100"
               objectFit="contain"
               placeholder={() => <div style={{ backgroundColor: "grey" }} />}

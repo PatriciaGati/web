@@ -6,6 +6,9 @@ body {
   background-color: ${(props) => props.theme.bg} !important;
   color: ${(props) => props.theme.fg} !important;
 }
+.danger{
+  color: ${(props) => props.theme.danger} !important;
+}
 h1 {
   display: block;
   position: absolute;
@@ -43,14 +46,11 @@ h1 {
     transform: translateY(-50%);
     position: relative !important;
   }
-  .nav-link:not(.dropdown-link)::after {
-    content: "/";
-    position: relative;
-    right: -10px;
+  .nav-link:not(.dropdown-link):not(:last-of-type)::after {
+    content: "/" !important;
+    position: relative !important;
+    right: -10px !important;
   }
-}
-
-
-  `;
+} `;
 
 export default GlobalStyle;

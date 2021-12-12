@@ -1,5 +1,6 @@
 import React from "react";
 import { GraphQLClient, gql } from "graphql-request";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -10,44 +11,11 @@ import Alert from "react-bootstrap/Alert";
 import Layout from "../src/components/layout";
 import pati from "../src/image/pati.jpg";
 import imageText from "../src/image/kezdolap.png";
-const initialData = {
-  allContact: [
-    {
-      name: "Árak",
-      header: "Árak",
-      seo: {
-        metaKeyWords: "Árak",
-        metaDescription: "Árak",
-        structured_data: { title: "Árak", alt: "Árak" },
-      },
-      image: {
-        title: "Árak",
-        alt: "Árak",
-        description: "Árak",
-        image: {
-          asset: {
-            url: pati,
-          },
-        },
-      },
-      imagetext: {
-        title: "Árak",
-        alt: "Árak",
-        description: "Árak",
-        image: {
-          asset: {
-            url: imageText,
-          },
-        },
-      },
-    },
-  ],
-};
-const Contact = (props) => {
-  //const { data } = props;
 
-  //const { name, image, imagetext, text } = data.allMain[0];
-  const { name, image, imagetext, text } = initialData.allContact[0];
+const Contact = (props) => {
+  const { data } = props;
+  console.log(data.allContact[0]);
+  const { name, image, imagetext, text } = data.allContact[0];
   const [messageData, setMessageData] = React.useState();
   const {
     register,
@@ -55,8 +23,27 @@ const Contact = (props) => {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(watch("example"));
+  const onSubmit = (data) => {
+    console.log("Sending");
+    axios("/api/contact", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: data,
+    })
+      .then((res) => {
+        console.log("Response received");
+        if (res.status === 200) {
+          console.log("Response succeeded!");
+          setSubmitted(true);
+          setMessageData({});
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+ 
   return (
     <Layout image={image} imagetext={imagetext}>
       <Row>
@@ -77,7 +64,9 @@ const Contact = (props) => {
                     type="text"
                     placeholder="Vezetéknév"
                   />
-                  {errors.lastname && <span>This field is required</span>}
+                  {errors.lastname && (
+                    <span className="danger">This field is required</span>
+                  )}
                 </Form.Group>
               </Col>
               <Col md={6}>
@@ -89,7 +78,9 @@ const Contact = (props) => {
                     type="text"
                     placeholder="Keresztnév"
                   />
-                  {errors.lastname && <span>This field is required</span>}
+                  {errors.lastname && (
+                    <span className="danger">This field is required</span>
+                  )}
                 </Form.Group>
               </Col>
             </Row>
@@ -102,7 +93,9 @@ const Contact = (props) => {
                 type="email"
                 placeholder="email"
               />
-              {errors.lastname && <span>This field is required</span>}
+              {errors.lastname && (
+                <span className="danger">This field is required</span>
+              )}
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formSubject">
@@ -113,7 +106,9 @@ const Contact = (props) => {
                 type="text"
                 placeholder="Tárgy"
               />
-              {errors.lastname && <span>This field is required</span>}
+              {errors.lastname && (
+                <span className="danger">This field is required</span>
+              )}
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formMessage">
@@ -125,7 +120,9 @@ const Contact = (props) => {
                 rows={3}
                 placeholder="Üzenet"
               />
-              {errors.lastname && <span>This field is required</span>}
+              {errors.lastname && (
+                <span className="danger">This field is required</span>
+              )}
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -143,8 +140,7 @@ const Contact = (props) => {
   );
 };
 
-{
-  /*export async function getServerSideProps(context) {
+export async function getServerSideProps(context) {
   const { id } = context.query;
   const endpoint =
     "https://nz3s72ab.api.sanity.io/v1/graphql/production/default";
@@ -178,6 +174,5 @@ const Contact = (props) => {
   return {
     props: { data }, // will be passed to the page component as props
   };
-}*/
 }
 export default Contact;
