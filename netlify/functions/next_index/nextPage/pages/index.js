@@ -2,100 +2,47 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 57293:
+/***/ 67406:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ pages),
-  "getServerSideProps": () => (/* binding */ getServerSideProps)
-});
-
-// EXTERNAL MODULE: ./node_modules/graphql-request/dist/index.js
-var dist = __webpack_require__(28687);
-// EXTERNAL MODULE: ./node_modules/react-bootstrap/cjs/Row.js
-var Row = __webpack_require__(28269);
-var Row_default = /*#__PURE__*/__webpack_require__.n(Row);
-// EXTERNAL MODULE: ./node_modules/react-bootstrap/cjs/Col.js
-var Col = __webpack_require__(1266);
-// EXTERNAL MODULE: ./src/components/layout/index.js + 5 modules
-var layout = __webpack_require__(29413);
-;// CONCATENATED MODULE: ./src/image/pati.jpg
-/* harmony default export */ const pati = ({"src":"/_next/static/image/src/image/pati.84427417c1e7392967e44ddd407cf31f.jpg","height":1980,"width":1157,"blurDataURL":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoKCgoKCgsMDAsPEA4QDxYUExMUFiIYGhgaGCIzICUgICUgMy03LCksNy1RQDg4QFFeT0pPXnFlZXGPiI+7u/sBCgoKCgoKCwwMCw8QDhAPFhQTExQWIhgaGBoYIjMgJSAgJSAzLTcsKSw3LVFAODhAUV5PSk9ecWVlcY+Ij7u7+//CABEIAAgABQMBIgACEQEDEQH/xAAUAAEAAAAAAAAAAAAAAAAAAAAH/9oACAEBAAAAACj/xAAUAQEAAAAAAAAAAAAAAAAAAAAB/9oACAECEAAAAD//xAAUAQEAAAAAAAAAAAAAAAAAAAAB/9oACAEDEAAAAH//xAAaEAACAgMAAAAAAAAAAAAAAAABAgRRABES/9oACAEBAAE/AHWKIsZ9nti4YKavP//EABURAQEAAAAAAAAAAAAAAAAAAAEA/9oACAECAQE/AEv/xAAVEQEBAAAAAAAAAAAAAAAAAAABAP/aAAgBAwEBPwAb/9k="});
-;// CONCATENATED MODULE: ./src/image/kezdolap.png
-/* harmony default export */ const kezdolap = ({"src":"/_next/static/image/src/image/kezdolap.a497a74a3683cd5933f9ec090a52ced5.png","height":552,"width":1726,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAADCAQAAAAEwYbDAAAAPklEQVR42mP4KPdJ9hfnR6UvMt94vvB95mL4ovfV4YPOB9OPHp9tvph9VGX4yrCQ4aXgE8GnQk8ELjC/ZwAAktIYuH/F82kAAAAASUVORK5CYII="});
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(85893);
-;// CONCATENATED MODULE: ./pages/index.jsx
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getServerSideProps": () => (/* binding */ getServerSideProps),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var graphql_request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(28687);
+/* harmony import */ var graphql_request__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_request__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(28269);
+/* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1266);
+/* harmony import */ var _src_components_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(29413);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(85893);
 
 
 
 
 
 
-
-
-const initialData = {
-  allMain: [{
-    name: "Főoldal",
-    header: "Főoldal",
-    text: "Szeretettel üdvözöllek az oldalamon, örülök hogy benéztél hozzám. Remélem megtalálod amit keresel, és hamarosan személyesen is megismerjük egymást. Addig is jó böngészést, eredményes keresgélést, és csodaszép napot kívánok Neked!",
-    button_text: "Főoldal",
-    seo: {
-      metaKeyWords: "Főoldal",
-      metaDescription: "Főoldal",
-      structured_data: {
-        title: "Főoldal",
-        alt: "Főoldal"
-      }
-    },
-    image: {
-      title: "Főoldal",
-      alt: "Főoldal",
-      description: "Főoldal",
-      image: {
-        asset: {
-          url: pati
-        }
-      }
-    },
-    imagetext: {
-      title: "Főoldal",
-      alt: "Főoldal",
-      description: "Főoldal",
-      image: {
-        asset: {
-          url: kezdolap
-        }
-      }
-    }
-  }]
-};
 
 const Home = props => {
   const {
     data
   } = props;
   const {
-    image
-  } = data.allMain[0];
-  const {
     name,
     imagetext,
+    image,
     text
-  } = initialData.allMain[0];
-  return /*#__PURE__*/jsx_runtime.jsx(layout/* default */.Z, {
+  } = data.allMain[0];
+  return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx(_src_components_layout__WEBPACK_IMPORTED_MODULE_1__/* .default */ .Z, {
     image: image,
     imagetext: imagetext,
-    children: /*#__PURE__*/jsx_runtime.jsx((Row_default()), {
-      children: /*#__PURE__*/(0,jsx_runtime.jsxs)(Col.default, {
-        children: [/*#__PURE__*/jsx_runtime.jsx("h1", {
+    children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx((react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_3___default()), {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_4__.default, {
+        children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("h1", {
           hidden: true,
           children: name
-        }), /*#__PURE__*/jsx_runtime.jsx("p", {
+        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("p", {
           children: text
         })]
       })
@@ -108,8 +55,8 @@ async function getServerSideProps(context) {
     id
   } = context.query;
   const endpoint = "https://nz3s72ab.api.sanity.io/v1/graphql/production/default";
-  const graphQLClient = new dist.GraphQLClient(endpoint);
-  const query = dist.gql`
+  const graphQLClient = new graphql_request__WEBPACK_IMPORTED_MODULE_0__.GraphQLClient(endpoint);
+  const query = graphql_request__WEBPACK_IMPORTED_MODULE_0__.gql`
     query {
       allMain {
         name
@@ -155,11 +102,11 @@ async function getServerSideProps(context) {
 
   };
 }
-/* harmony default export */ const pages = (Home);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
 
 /***/ }),
 
-/***/ 67865:
+/***/ 78284:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -202,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
       const appMod = __webpack_require__(7672)
       let App = appMod.default || appMod.then && appMod.then(mod => mod.default);
 
-      const compMod = __webpack_require__(57293)
+      const compMod = __webpack_require__(67406)
 
       const Component = compMod.default || compMod.then && compMod.then(mod => mod.default)
       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Component);
@@ -253,11 +200,11 @@ __webpack_require__.r(__webpack_exports__);
         rewrites: combinedRewrites,
         i18n: undefined,
         page: "/",
-        buildId: "az2lrEtlLfh7I1N9THsG0",
-        escapedBuildId: "az2lrEtlLfh7I1N9THsG0",
+        buildId: "NcLeWkMZimcHnTAbLoOt5",
+        escapedBuildId: "NcLeWkMZimcHnTAbLoOt5",
         basePath: "",
         pageIsDynamic: false,
-        encodedPreviewProps: {previewModeId:"0a1f463f8288824bd7bc1da764d6b646",previewModeSigningKey:"b60b3df2c6f7a7a7f2d4803420bbff805b7deac725ca352fc851fa3e635a0dd1",previewModeEncryptionKey:"7c81fa4376adad010395507b6726d3b17d70eaf91c370212956a747f201fd0c8"}
+        encodedPreviewProps: {previewModeId:"ce9f5fe9864706e7aba474c11f930208",previewModeSigningKey:"ea7c4eea1408a6cd2f856fb9a2813c4a8442e7e857f9919f74616d24c274a4cc",previewModeEncryptionKey:"cea24be3993765963711a3f94ea2ba18dd01d660cea9b20765fde1525c753b15"}
       })
       
     
@@ -446,7 +393,7 @@ module.exports = require("zlib");
 /******/ 	__webpack_require__.x = () => {
 /******/ 		// Load entry module and return exports
 /******/ 		// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [315,819,449,266,874,527,823], () => (__webpack_require__(67865)))
+/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [315,819,449,266,874,527,823], () => (__webpack_require__(78284)))
 /******/ 		__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 		return __webpack_exports__;
 /******/ 	};

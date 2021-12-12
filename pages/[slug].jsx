@@ -64,7 +64,7 @@ const Gallery = (props) => {
                 loading="lazy"
                 onClick={() => handleClick(i)}
               />
-              <h1>{name}</h1>
+              <h1 hidden>{name}</h1>
             </Col>
           );
         })}

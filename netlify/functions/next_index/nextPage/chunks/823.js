@@ -235,7 +235,7 @@ const Layout = props => {
             offset: 3
           },
           children: /*#__PURE__*/jsx_runtime.jsx(next_image.default, {
-            src: imagetext.image.asset.url,
+            src: urlFor(imagetext.image).url(),
             alt: imagetext.alt,
             title: imagetext.title,
             description: imagetext.description,

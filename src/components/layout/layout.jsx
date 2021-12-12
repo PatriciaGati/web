@@ -47,7 +47,7 @@ const Layout = (props) => {
           </Col>
           <Col className="text-image" md={{ span: 3, offset: 3 }}>
             <Image
-              src={imagetext.image.asset.url}
+              src={urlFor(imagetext.image).url()}
               alt={imagetext.alt}
               title={imagetext.title}
               description={imagetext.description}

@@ -217,7 +217,7 @@ async function getServerSideProps(context) {
 
 /***/ }),
 
-/***/ 27127:
+/***/ 39408:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -311,11 +311,11 @@ __webpack_require__.r(__webpack_exports__);
         rewrites: combinedRewrites,
         i18n: undefined,
         page: "/[slug]",
-        buildId: "az2lrEtlLfh7I1N9THsG0",
-        escapedBuildId: "az2lrEtlLfh7I1N9THsG0",
+        buildId: "NcLeWkMZimcHnTAbLoOt5",
+        escapedBuildId: "NcLeWkMZimcHnTAbLoOt5",
         basePath: "",
         pageIsDynamic: true,
-        encodedPreviewProps: {previewModeId:"0a1f463f8288824bd7bc1da764d6b646",previewModeSigningKey:"b60b3df2c6f7a7a7f2d4803420bbff805b7deac725ca352fc851fa3e635a0dd1",previewModeEncryptionKey:"7c81fa4376adad010395507b6726d3b17d70eaf91c370212956a747f201fd0c8"}
+        encodedPreviewProps: {previewModeId:"ce9f5fe9864706e7aba474c11f930208",previewModeSigningKey:"ea7c4eea1408a6cd2f856fb9a2813c4a8442e7e857f9919f74616d24c274a4cc",previewModeEncryptionKey:"cea24be3993765963711a3f94ea2ba18dd01d660cea9b20765fde1525c753b15"}
       })
       
     
@@ -504,7 +504,7 @@ module.exports = require("zlib");
 /******/ 	__webpack_require__.x = () => {
 /******/ 		// Load entry module and return exports
 /******/ 		// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [315,819,449,266,654,874,527,823], () => (__webpack_require__(27127)))
+/******/ 		var __webpack_exports__ = __webpack_require__.O(undefined, [315,819,449,266,654,874,527,823], () => (__webpack_require__(39408)))
 /******/ 		__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 		return __webpack_exports__;
 /******/ 	};

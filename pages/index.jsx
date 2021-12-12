@@ -4,9 +4,7 @@ import Col from "react-bootstrap/Col";
 import Layout from "../src/components/layout";
 const Home = (props) => {
   const { data } = props;
-
-  const { image} = data.allMain[0];
-  const { name, imagetext, text } = initialData.allMain[0];
+  const { name, imagetext, image,  text } = data.allMain[0];
   return (
     <Layout image={image} imagetext={imagetext}>
       <Row>
