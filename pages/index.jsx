@@ -2,8 +2,6 @@ import { GraphQLClient, gql } from "graphql-request";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Layout from "../src/components/layout";
-import pati from "../src/image/pati.jpg";
-import imageText from "../src/image/kezdolap.png";
 
 const Home = (props) => {
   const { data } = props;
